@@ -12,7 +12,6 @@
 function sayHello(name) {
     return "Hello, " + name + "!";
 }
-console.log(sayHello("CodeUp"));
 
 /**
  * TODO:
@@ -22,8 +21,7 @@ console.log(sayHello("CodeUp"));
  * console.log 'helloMessage' to check your work
  */
 
-let helloMessage = sayHello(name);
-
+let helloMessage = sayHello("CodeUp");
 console.log(helloMessage);
 
 /**
@@ -33,8 +31,8 @@ console.log(helloMessage);
  * console.
  */
 
-let myNameIs = "Chanee";
-console.log(sayHello(myNameIs));
+let myName = "Chanee";
+console.log(sayHello(myName));
 
 
 // Don't modify the following line, it generates a random number between 1 and 3
@@ -61,10 +59,10 @@ const random = Math.floor((Math.random() * 3) + 1);
 function isTwo(number) {
     return number === 2;
 }
-console.log(isTwo(1));
-console.log(isTwo(2));
-console.log(isTwo(3));
-console.log(isTwo(random));
+console.log("1" + isTwo(1));
+console.log("2" + isTwo(2));
+console.log("3" + isTwo(3));
+console.log("Random" + random + "" + isTwo(random));
 
 /**
  * TODO:
@@ -78,9 +76,10 @@ console.log(isTwo(random));
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 function calculateTip(tipPercentage, totalBill ) {
-    let tipAmount = tipPercentage * totalBill;
-    return tipAmount;
+    return tipPercentage * totalBill;
 }
+console.log(calculateTip(.20, 20));
+
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
@@ -106,8 +105,7 @@ alert(`You should tip $${tipAmount.toFixed(2)}`);
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
-function applyDiscount(originalPrice, discountedPercentage){
-    let discountAmount = (originalPrice * discountedPercentage);
-    let newTotal = originalPrice -  discountAmount;
-    return newTotal;
+function applyDiscount(price, discount){
+    return price - (price * discount);
 }
+console.log(applyDiscount(100, .2));
