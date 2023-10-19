@@ -43,13 +43,13 @@ console.log("Starting with " + allCones + " ice cream cones.");
 
 do {
     // Generate a random number between 50 and 100 for the customer
-    let conesBought = Math.floor(Math.random() * 50) + 50;
+    let conesBought = Math.floor(Math.random() * 5) + 1;
 
     if (conesBought <= allCones) {
-        console.log(conesBought + " cones sold...");
+        console.log(conesBought + " cones sold.");
         allCones -= conesBought;
     } else {
-        console.log("Cannot sell you " + conesBought + " cones, I only have " + allCones + "...");
+        console.log("Cannot sell you " + conesBought + " cones, I only have " + allCones + "");
     }
 } while (allCones > 0);
 
