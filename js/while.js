@@ -37,7 +37,7 @@ while (number <= 65536) {
 // Cannot sell you 6 cones I only have 3...  // If there are not enough cones
 // Yay! I sold them all! // If there are no more cones
 
-let allCones = Math.floor(Math.random() * 51) + 50;
+let allCones = Math.floor(Math.random() * 50) + 50;
 
 console.log("Starting with " + allCones + " ice cream cones.");
 
@@ -46,10 +46,10 @@ do {
     let conesBought = Math.floor(Math.random() * 5) + 1;
 
     if (conesBought <= allCones) {
-        console.log(conesBought + " cones sold.");
+        console.log(conesBought + " cones sold...");
         allCones -= conesBought;
     } else {
-        console.log("Cannot sell you " + conesBought + " cones, I only have " + allCones + "");
+        console.log("Cannot sell you " + conesBought + " cones, I only have " + allCones + "...");
     }
 } while (allCones > 0);
 
