@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>"Register With Us"</title>
+</head>
+<body>
+<h1>Register With Us</h1>
+<!--Form info and everything else goes here-->
+<form method="POST" action="https://request-inspector.glitch.me/">
+
+    <label for="email">Email:</label>
+    <input id="email" name="email" type="text" placeholder="Enter email" required>
+    <br>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" placeholder="Enter password" required>
+    <br>
+    <label for="bio">Password</label>
+    <textarea id="bio" name="bio" cols="30" rows="10">Tell me about your self</textarea>
+    <br>
+    <!--Radio button-->
+    <h3>How did you hear about us:</h3>
+    <br>
+    <input  type="radio" id="billboard" name="How did you hear about us: " value="billboard"><label for="billboard">Billboard</label>
+    <br>
+    <input  type="radio" id="radio advertisement" name="How did you hear about us: " value="radio advertisement"><label for="radio advertisement">Radio Advertisement</label>
+    <br>
+    <input  type="radio" id="internet advertisement" name="How did you hear about us: " value="internet advertisement"><label for="internet advertisement">Internet Advertisement</label>
+    <br>
+    <input  type="radio" id="other" name="How did you hear about us: " value="other"><label for="other">Other</label>
+    <br>
+    <!--Drop Down-->
+    <h1>What Web Browser are you using?</h1>
+    <label for="browser">Select your browser:</label>
+    <select name="browser" id="browser">
+        <option value="chrome">Chrome</option>
+        <option value="firefox">Firefox</option>
+        <option value="edge">Edge</option>
+        <option value="safari">Safari</option>
+        <option value="aol">AOL</option>
+        <option value="bing">Bing</option>
+        <option value="other">Other</option>
+    </select>
+    <br>
+    <!--Submitting page-->
+    <button type="submit">Register</button>
+</form>
+</body>
+</html>
