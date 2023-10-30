@@ -1,0 +1,22 @@
+/* style sheet
+*/
+
+h1{
+    color: crimson
+}
+.fancy-header {
+    color: cornflowerblue;
+    text-decoration: underline;
+}
+#special{
+    color: seagreen;
+}
+.black-text{
+    color: black;
+}
+.indent{
+    text-indent: 45px;
+}
+h2.fancy-header {
+    color: gold;
+}

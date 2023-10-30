@@ -1,7 +1,99 @@
 /* style sheet
 */
-
+section {
+    color: #e1d068;
+}
+p {
+    color: #e1d068;
+}
 .fancy-header {
-    color: purple;
+    color: rgba(12, 112, 12, 0.59);
     text-decoration: underline;
 }
+/**{*/
+/*    font-family: 'Poppins', sans-serif;*/
+/*    font-style: normal;*/
+/*    font-weight: bolder;*/
+/*}*/
+/* 2. Center the main heading*/
+h1 {
+    text-align: center;
+}
+/* 3. Add a style to change the color of the headers on your page and make them underlined.
+*/
+h2 {
+    color: #efb916;
+    text-decoration: underline;
+}
+/* 4. Add a style to change the background color of the page.
+body{
+    background-color: gold;
+}*/
+/* 5. Add a style to add a background image to your background. Search how to manipulate the position,
+sizing of this background image.
+ */
+body{
+    background-image: url("../img/green mountains.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+/* 6. Add a style to change the list-style to something other than the default bullet.
+.*/
+section, ul{
+    list-style-type: square;
+
+}
+/* 7. Add a style to change the font for the entire page. Use google fonts if you would like.*/
+body {
+    font-family: 'Poppins', sans-serif;
+
+}
+/* 8. Add a style to change the table, table cells td and rows tr padding and font sizes.
+*/
+table {
+    margin: 0 auto;
+    width: 75%; /* Set the table width to 100% of its container */
+    border-collapse: collapse; /* Remove cell spacing and use shared borders */
+    font-size: 16px; /* Set the font size for the entire table */
+}
+
+/* Style table cells (td) */
+td {
+    padding: 10px; /* Adjust cell padding */
+    font-size: 14px; /* Set the font size for table cells */
+    text-align: center;
+}
+/* Style table rows (tr) */
+tr {
+    background-color: rgba(5, 77, 5, 0.59); /* Add a background color to alternate rows */
+}
+/*th {*/
+/*    text-align: center;*/
+/*}*/
+/* 9. Add a style to alter the anchor tags and its different states. (e.g. link, visited, hover and active).
+*/
+/* Style anchor tags (link state) */
+a {
+    color: #359f02; /* Default link color */
+    text-decoration: none; /* Remove underlines */
+}
+
+/* Style anchor tags in the visited state */
+a:visited {
+    color: #6600cc; /* Visited link color */
+}
+
+/* Style anchor tags in the hover state */
+a:hover {
+    color: #f8ec30; /* Hover link color */
+    text-decoration: underline; /* Add underlines on hover */
+}
+
+/* Style anchor tags in the active state */
+a:active {
+    color: #459953; /* Active link color */
+}
+
+/* 10. Continue experimenting with styles to increase the visual appeal of the page.
+*/
