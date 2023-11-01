@@ -6,7 +6,7 @@
     --bg-warning: #fcfbc9;
     --font-warning: #8d7912;
     --bg-error: #fad3d7;
-    --font-error: #a1495d;
+    --font-error: rgba(161, 73, 93, 0.58);
     --border-color: black
 
 }
@@ -26,13 +26,16 @@ body, html {
 .message-info{
     background: var(--bg-info);
     background-color: var(--font-info);
-}.message-success{
+}
+.message-success{
     background: var(--bg-success);
     background-color: var(--font-success);
-}.message-warning{
+}
+.message-warning{
     background: var(--bg-warning);
     background-color: var(--font-warning);
-}.message-error{
+}
+.message-error{
     background: var(--bg-error);
     background-color: var(--font-error);
 }
