@@ -79,7 +79,12 @@ function calculateTip(tipPercentage, totalBill ) {
     return tipPercentage * totalBill;
 }
 console.log(calculateTip(.20, 20));
+console.log(calculateTip(.25,25.50));
+console.log(calculateTip(.15,33.42));
 
+/*function calculateTIp(tip,total){
+    return (tip * total).toFixed(2);
+}*/
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
@@ -90,6 +95,13 @@ let billTotal = parseFloat(prompt("Please enter the total amount of your bill.")
 let tipPercentage = parseFloat(prompt( "Please enter the amount of percentage of tip you would like to apply, as a decimal!"));
 let tipAmount = calculateTip(tipPercentage, billTotal);
 alert(`You should tip $${tipAmount.toFixed(2)}`);
+
+/*
+let total = parseFloat(prompt("What is the total of your bill"));
+let tip = parseFloat(prompt("Please provide a top percentage as a decimal:"));
+alert(calculateTip(tip,total))
+*/
+
 
 /**
  * TODO:
@@ -108,4 +120,6 @@ alert(`You should tip $${tipAmount.toFixed(2)}`);
 function applyDiscount(price, discount){
     return price - (price * discount);
 }
-console.log(applyDiscount(100, .2));
+/*
+console.log(applyDiscount(100, .2));*/
+console.log(applyDiscount(50, .18))

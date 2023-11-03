@@ -15,6 +15,10 @@
     console.log(planetsArray);
 
     // console.log(planetsArray);
+    //Notes from Review
+    //    planetsArray = planetsString.split("|");
+    //
+    //     console.log(planetsArray);
 
     /**
      * TODO:
@@ -29,4 +33,14 @@
 
     var planetsStringWithBrTags = planetsArray.join("<br>");
     console.log(planetsStringWithBrTags);
+
+    //Notes from Review
+    //
+    //    let planetsWithBreaks = planetsArray.join("<br>");
+    //     console.log(planetsWithBreaks);
+    //     document.getElementById("html-go-here").innerHTML = planetsWithBreaks;
+    //
+    //     let planetsUL = `<ul><li>${planetsArray.join("</li><li>")}</li></ul>`;
+    //     document.getElementById("html-go-here").innerHTML = planetsUL;
+
 })();

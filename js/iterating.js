@@ -9,6 +9,8 @@
     let emptyArr=[];
     console.log(Array.isArray(emptyArr));
     let names= ["Pumpkin", "Ghost", "Vampire", "Bat"];
+// Notes from Review
+//    const names = ["David", "Trevor", "Justin", "Codey The Duck"];
 
     /**
      * TODO:
@@ -25,7 +27,11 @@
     for (let i = 0; i < names.length; i++) {
         console.log(names[i]);
     }
-
+//     Notes from Review
+//     console.log(names[0]);
+//     console.log(names[1]);
+//     console.log(names[2]);
+//     console.log(names[3]);
     /**
      * TODO:
      * Write some code that uses a for loop to log every item in the names
@@ -34,7 +40,14 @@
     for (let i = names.length -1; i >= 0; i--) {
         console.log(names[i]);
     }
-
+//    Notes from Review
+//    for (let i = 0; i < names.length; i++) {
+//         console.log(names[i]);
+//     }
+//
+//     for (let name of names) {
+//         console.log(name);
+//     }
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop

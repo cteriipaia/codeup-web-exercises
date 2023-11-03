@@ -64,7 +64,14 @@
             Unfortunately you do not qualify for a discount.`);
         }
     });
-
+    //Notes from Review
+    //   for(let shopper of shoppers) {
+    //         if (shopper.amount > 200) {
+    //             console.log(`Congrats, ${shopper.name}. You qualify for $${(shopper.amount * .12).toFixed(2)} discount, and therefore your original $${shopper.amount.toFixed(2)} bill is now $${(shopper.amount * .88).toFixed(2)}.`);
+    //         } else {
+    //             console.log(`Sorry, ${shopper.name}. You do not qualify for the discount. Your final total is $${shopper.amount.toFixed(2)}`);
+    //         }
+    //     }
     /** TODO:
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author
@@ -154,6 +161,25 @@
         console.log("---");
 
     }
+
+    //Notes from Review
+    //    function showBookInfo(book) {
+    //         return `Title: ${book.title}\nAuthor: ${book.author.firstName} ${book.author.lastName}`;
+    //     }
+    //
+    //     for(let i = 0; i < books.length; i++) {
+    //         console.log(`Book # ${i + 1}\n${showBookInfo(books[i])}\n---`);
+    //     }
+    //
+    //     books.forEach((book, index) => {
+    //         console.log(`Book # ${index + 1}\n${showBookInfo(book)}\n---`);
+    //
+    //     });
+    //
+    //     let someBookCount = 1;
+    //     for(let book of books) {
+    //         console.log(`Book # ${someBookCount++}\n${showBookInfo(book)}\n---`);
+    //     }
 
     /**
      * Bonus:

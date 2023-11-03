@@ -12,6 +12,18 @@
         'Neptune'
     ];
 
+    //Notes from Review
+    //    const planets = [
+    //         'Mercury',
+    //         'Venus',
+    //         'Earth',
+    //         'Mars',
+    //         'Jupiter',
+    //         'Saturn',
+    //         'Uranus',
+    //         'Neptune'
+    //     ];
+
     /**
      * TODO:
      * Read each console log below, and write some javascript code to perform

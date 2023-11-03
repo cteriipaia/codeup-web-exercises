@@ -21,7 +21,7 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
-
+/*
 function analyzeColor(color){
    if (color === "blue"){
        return "Blue is the color of the ocean";
@@ -34,7 +34,7 @@ function analyzeColor(color){
 
 console.log(analyzeColor('blue'));
 console.log(analyzeColor('red'));
-console.log(analyzeColor('yellow'));
+console.log(analyzeColor('yellow'));*/
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -48,7 +48,7 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
  * You should see a different message every time you refresh the page
  */
-console.log(randomColor)
+//console.log(randomColor)
 //console.log(analyzeColor(randomColor));
 
 /**
@@ -68,6 +68,24 @@ switch (randomColor) {
         break;
 }
 console.log(analyzeColor(randomColor));
+/*
+function analyzeColor(color){
+    switch (color){
+        case 'blue':
+            return "Blue is the color of the sky";
+        case 'red':
+            return  "Strawberries are red";
+        default:
+            return "I don't know anything about " + color;
+    }
+}
+
+console.log(analyzeColor("blue"));
+console.log(analyzeColor("red"));
+console.log(analyzeColor("cyan"));
+console.log(analyzeColor("orange"));
+*/
+
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
@@ -86,6 +104,8 @@ switch (userColor) {
         alert (userColor + " is a weird color!");
         break;
 }
+// let userColor = prompt("Please gimme a color").toLowerCase();
+// alert(analyzeColorSwitch(userColor));
 
 /* ########################################################################## */
 
@@ -126,6 +146,36 @@ function calculateTotal(luckyNumber,totalAmount) {
 console.log(calculateTotal(0, 100));
 console.log(calculateTotal(1,100));
 console.log(calculateTotal(5, 100));
+
+/*
+function calculateTotal(luckyNum, total){
+
+    if(luckyNum === 0){
+        return total;
+    } else if(luckyNum === 1){
+        return total - (total * .10);
+    }else if(luckyNum === 2){
+        return total - (total * .25);
+    }else if(luckyNum === 3){
+        return total - (total * .35);
+    }else if(luckyNum === 4){
+        return total - (total * .50);
+    }else if(luckyNum === 5){
+        return 0;
+    } else {
+        return "Please enter a valid input";
+    }
+}
+
+console.log(calculateTotal(0, 100));
+console.log(calculateTotal(1, 100));
+console.log(calculateTotal(2, 100));
+console.log(calculateTotal(3, 100));
+console.log(calculateTotal(4, 100));
+console.log(calculateTotal(5, 100));
+console.log(calculateTotal("bob", 100));
+*/
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -140,6 +190,7 @@ const luckyNumber = Math.floor(Math.random() * 6);
 let totalBill = parseFloat(prompt("Please enter your total bill: "));
 calculateTotal(luckyNumber, totalBill);
 alert(`Your lucky number is ${luckyNumber}. Your total is $${totalBill}.` + calculateTotal(luckyNumber,totalBill));
+
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
@@ -158,3 +209,34 @@ alert(`Your lucky number is ${luckyNumber}. Your total is $${totalBill}.` + calc
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+function numberInfo() {
+
+    if (confirm("would you like to enter a number?")) {
+
+        let userInput = parseFloat(prompt("Enter a number"));
+
+
+        if (!isNaN(userInput)) {
+            if (userInput % 2 === 0) {
+                alert("The number " + userInput + " is even");
+            } else {
+                // alert("The number " + userInput + " is odd");
+                alert(`The number ${userInput}  is odd`);
+            }
+
+            alert("The number plus 100 = " + (parseInt(userInput) + 100));
+
+            if (userInput >= 0) {
+                alert("The number " + userInput + " Is Positive");
+            } else {
+                alert("The number " + userInput + " Is Negative");
+            }
+        } else {
+            alert("You entered something that was not a number, try again!!");
+        }
+
+    }
+}
+
+
+numberInfo();
