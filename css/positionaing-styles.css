@@ -12,6 +12,7 @@ body {
     width: calc(100% - 40px);
     max-width: 530px;
     box-shadow: 0px 0px 104px -40px rgba(0, 0, 0, 0.25);
+    z-index: 10;
 }
 
 .container.login h1 {
@@ -27,7 +28,7 @@ input {
     font-size: 15px;
 }
 
-input:placeholder {
+input.placeholder {
     color: #ABAFB3;
 }
 
@@ -73,4 +74,74 @@ button.btn.btn-login {
     min-width: 250px;
 }
 
+.background{
+    position: absolute;
+    z-index: 2;
+}
+.cancel-button{
+    position: relative;
+    bottom: 4em;
+    left: 55%;
+    background-color: white;
+    /*
+    border-color: darkgrey;
+    */
+    border: 0;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.63);
+    height: 35px;
+    width: 35px;
+    /*
+    z-index: 4;
+    */
+    border-radius: 100%;
+/*    padding: 5px;*/
+    display: flex;
+    /*
+    align-items: center;
+    */
+    /*
+    justify-content: center;
+    */
+}
+/*ahhh not working or moving^*/
 
+.times-icon{
+    width: 13px;
+    margin: auto;
+}
+.dots-1{
+    bottom: 50%;
+    left: 5%;
+}
+.dots-2{
+    top: 1.5em;
+    right: 6em;
+/*    top: 5%;
+    right: 10%;*/
+}
+.wavy-lines-1{
+    top: 4em;
+    left: 1em;
+/*    top: 15%;
+    left: 2%;*/
+}
+.wavy-lines-2{
+    right: 1em;
+    top: 18em;
+/*    z-index: 2;
+    right: 100%;
+    bottom: 0;*/
+}
+/*ahhhhh not working^*/
+
+.footer-wave-top{
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.footer-wave-bottom{
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}

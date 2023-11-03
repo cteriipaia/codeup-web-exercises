@@ -65,7 +65,6 @@ fieldset {
     /* The border of this element should be 1px, and its color should be light grey */
     background-color: #0fb784;
 }
-
 .form-control {
     /*box-sizing:border-box (alternate route for calc)*/
     /* There must be 4px on top of the text and below the text of an input with this class */
