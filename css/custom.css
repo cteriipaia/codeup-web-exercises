@@ -7,3 +7,15 @@
 .light-title {
     background-color: rgba(255, 255, 255, 0.7);
 }
+.nav-items {
+    border: 2px solid rgba(255, 255, 255, 0.7); /* Specify the border width and color */
+    border-radius: 10px; /* Add rounded corners to the border */
+    padding: 10px; /* Add padding to separate the border from the tab content */
+}
+.card-title{
+    background-color: rgba(255, 255, 255, 0.7);
+}
+/*
+.bg-orange {
+    background-color: orangered;
+}*/

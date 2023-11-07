@@ -1,81 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Pizza Order Form</title>
+        <title>Pizza Form</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+              crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="custom.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <style>
+            #main-container {
+              background-image: url("img/pizza.png");
+                text-align: center;
+                background-size: cover;
+                background-position: center;
+                height: 35vh;
+                linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),
+            }
+            h1 {
+                width: 100%;
+                background-color: #ffffffab;
+                linear-gradient(to bottom, rgba(0,0,0,0.6) 10%,rgba(0,0,0,0.6) 10%),
+            }
+        </style>
     </head>
     <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Pizza Order</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sign Up</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="jumbotron d-none d-md-block">
-            <div class="light-title p-4">
-                <!-- Light title content here -->
-            </div>
-        </div>
-        <h2>Pizza Order Form</h2>
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#size">Size <span class="badge badge-primary">1</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#cheese and sauce">Cheese and Sauce <span class="badge badge-primary">2</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#toppings">Toppings <span class="badge badge-primary">3</span></a>
-                </li>
-            </ul>
-
-            <div class="card mt-3">
-                <div class="card-body">
-                    <h5 class="card-title">Select Size and Crust</h5>
-                    <!-- Add radio buttons for size and crust here -->
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Select Size and Crust</h5>
-                    <!-- Add radio buttons for size and crust here -->
-                </div>
-                <div class="card-footer text-right">
-                    <button class="btn btn-primary">Next</button>
-                </div>
-            </div>
-
-            <div class="card mt-3">
-                <div class="card-body">
-                    <h5 class="card-title">Select Cheese and Sauce</h5>
-                    <!-- Add radio buttons for cheese and sauce here -->
-                </div>
-                <div class="card-footer">
-                    <div class="btn-group" role="group" aria-label="Cheese Options">
-                        <!-- Add cheese buttons here -->
-                    </div>
-                    <div class="btn-group" role="group" aria-label="Sauce Options">
-                        <!-- Add sauce buttons here -->
+        <nav class="navbar navbar-expand-lg bg-white">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Pizza World</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav w-100">
+                        <a class="nav-link active" aria-current="page" href="#">Order Pizza</a>
+                        <a class="nav-link" href="#">Menu</a>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Zip Code" aria-label="Search">
+                            <button class="btn btn-outline-primary w-100" type="submit">Search stores near you!</button>
+                        </form>
+                        <a class="nav-link ms-auto" href="#"><i class="fa-solid fa-user me-2"></i>Sign Up!</a>
                     </div>
                 </div>
             </div>
-
-            <div class="card mt-3">
-                <div class="card-body">
-                    <h5 class="card-title">Select Toppings</h5>
-                    <!-- Add checkboxes for toppings here -->
+        </nav>
+        <div class="container">
+            <div class="container">
+                <div class="jumbotron jumbotron-fluid" id="main-container">
+                    <h1 class="display-4">Welcome to Pizza World!</h1>
                 </div>
             </div>
-    </div>
+            <h2>Build You Own Pizza!</h2>
+            <script src="https://kit.fontawesome.com/915ab9eecb.js" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                    crossorigin="anonymous"></script>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="size-and-crust-tab" data-toggle="tab" href="#size-and-crust" role="tab"
+                       aria-controls="size-and-crust" aria-selected="true">Size And Crust</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="cheese-and-sauce-tab" data-toggle="tab" href="#cheese-and-sauce" role="tab"
+                       aria-controls="cheese-and-sauce" aria-selected="false">Cheese And Sauce</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="toppings-tab" data-toggle="tab" href="#toppings" role="tab" aria-controls="contact"
+                       aria-selected="false">Contact</a>
+                </li>
+            </ul>
+            <div class="card mt-4">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Choose Size and Crust
+                </a>
+                <div class="card-body">
+                    <div class="tab-pane fade active show" id="hand-tossed-size" role="tabpanel"
+                         aria-labelledby="nav-home-tab">
+                        <div class="card position-static input-group mb-3" style="width: 100%">
+                            <div class="card-header">
+                                Hand Tossed
+                            </div>
+                            <ul class="list-group list-group">
+                                <li class="list-group-item">Garlic seasoned crust, with a rich buttery taste!</li>
+                                <li class="list-group-item"><input type="radio">Small (10")</li>
+                                <li class="list-group-item"><input type="radio">Medium (12")</li>
+                            </ul>
+                        </div>
+                    </div>
+<!--                    <a href="#" class="list-group-item list-group-item-action">Garlic seasoned crust with a rich, buttery taste.</a>-->
+<!--                        <label class=" list-group-item">-->
+<!--                            <input class="form-check-input me-1" type="radio" value=""/>-->
+<!--                             Small (10")-->
+<!--                        </label>-->
+<!--                        <label class=" list-group-item">-->
+<!--                            <input class="form-check-input me-1" type="radio" value=""/>-->
+<!--                             Medium (12")-->
+<!--                        </label>-->
+                </div>
+                    <div class="card-body">
+                        <div class="tab-pane fade active show" id="crispy-thin" role="tabpanel"
+                             aria-labelledby="nav-home-tab">
+                            <div class="card position-static input-group mb-3" style="width: 100%">
+                                <div class="card-header">
+                                    Crispy Thin
+                                </div>
+                                <ul class="list-group list-group">
+                                    <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio</li>
+                                    <li class="list-group-item"><input type="radio">Medium (12")</li>
+                                    <li class="list-group-item"><input type="radio">Large (14")</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="card-footer text-right">
+                <button class="btn btn-primary">Next Step ></button>
+            </div>
+        </div>
     </body>
 </html>
