@@ -1,0 +1,16 @@
+hr {
+    height: 5px;
+    background-color: #47a81c;
+    margin: 2em;
+    length: 90%;
+    border: none
+}
+header>div {
+    margin: 2em;
+}
+body{
+    box-sizing: border-box;
+}
+.spacing {
+    margin: 1em 0;
+}

@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Anton&display=swap');
+* {
+    box-sizing: border-box;
+}
+/*color*/
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+    --red-orange: #e6563b;
+    --orange: #cea03d;
+    --green: #7cb06c;
+    --emerald: #00aba9;
+    --off-white: #f0f0f0;
+    --gray: #e6e6e6;
+}
+body {
+    font-family: 'Abel', sans-serif;
+    font-size: 0.75rem;
+    background-color: #f0f0f0;
+}
+/*header font and sizes
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Anton', sans-serif;
+}
+h1 {
+    font-size: 50px;
+}
+h4 {
+    font-size: 1.25rem;
+}
+h5 {
+    font-size: 0.75rem;
+}
+.row {
+    margin: 0;
+}
+/*header*/
+header nav image{
+    width: auto;
+    margin: auto;
+    z-index: auto;
+}
+a {
+    color: #008080;
+}
+
+/*section*/
+.container .text-center{
+
+}
+.container .circle {
+    width: 105px;
+    height: 105px;
+    color: white;
+    border: 4px solid white;
+}
+
+/* circles*/
+.design {
+    background-color: #e6563b;
+}
+.develop {
+    background-color: #dea03d;
+}
+.support {
+    background-color: #7cb06c;
+}
+.host {
+    background-color: #00aba9;
+}
+/*main*/
+.title {
+    margin: 5rem 0 2rem 0;
+    font-size: 1.1rem;
+}
+.card {
+    background-color: #f0f0f0; /*white*/
+    box-sizing: content-box
+}
+.card-img-top {
+    border: 5px solid #e6e6e6;
+    box-sizing: content-box !important;
+}
+.card-body {
+    padding: 0 0 1.25rem 0;
+}
+.letter {
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+}
+.custom-header {
+    line-height: 18px;
+    text-align: center;
+}
+.side {
+    display: flex;
+    margin-bottom: 1rem;
+}
+.sideImage {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+    border: 2px solid #e6e6e6;
+    border-radius: 2px;
+}
+/* the right container */
+aside .side h4 {
+    font-size: 1.3rem;
+}
+aside h5 {
+    font-size: 1.05rem;
+}
+aside > p:nth-child(4) {
+    font-size: 1rem;
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    .text-center mt-4 mb-4 {
+        display: none;
+    }
+}
