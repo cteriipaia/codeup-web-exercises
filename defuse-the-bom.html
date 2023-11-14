@@ -30,16 +30,17 @@
 
             // delay time in milliseconds
 
-            const timeoutId = setInterval(updateTimer, 1000);
-            /*added 5000 to detonationTimer and setInterval*/
+            const intervalId = setInterval(updateTimer, 1000);
+
+            /*added 1000 to detonationTimer and setInterval*/
             // // to cancel the timeout, you can call
-            // clearTimeout(timeoutId);
             // prior to the delay expiring
 
             // TODO: When this function runs, it needs to
             // cancel the interval/timeout for updateTimer()
             function defuseTheBOM() {
-                clearTimeout(timeoutId);
+                clearInterval(intervalId);
+                document.getElementById('message').textContent='Defused';
                 // clearTimeout(detonationTimer);
             }
 
