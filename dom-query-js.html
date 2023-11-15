@@ -43,21 +43,32 @@
         const listItems =document.getElementsByTagName('li');
         //console.log(listItems);
 
-        // Print all the list items
+        // Print all the list items from curriculum
         //for (let i = 0; i < listItems.length; i++) {
         //console.log(listItems[i]);
         //}
 
         // TODO: Set text color on every other list item to grey
+        for (let node of listItems) {
+        //     console.log(node.dataset)
+            if (node.dataset.dbid % 2 == 0) {
+                node.style.color = "grey"
+            } else if (node.dataset.dbid == 1) {
+                node.style.color = "blue"
+            }
+        }
 
         //node can be named anything
         // TODO: Set text color of li with dbid = 1 to blue
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        const subParagraphs =document.getElementsByClassName("sub-paragraph");
+        const subParagraphs =document.getElementsByClassName("sub-paragraph")[0];
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerText = "Mission Accomplished";
+        document.getElementById("btn4").addEventListener("click", function () {
+            subParagraph[0].innerHTML = "Mission Accomplished!";
+        });
+        // subParagraphs[0].innerText = "Mission Accomplished";
         //The property innerText behaves in a similar manner, but it ignores any HTML tags.
 
 </script>
