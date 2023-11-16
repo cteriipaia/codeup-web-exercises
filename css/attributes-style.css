@@ -1,0 +1,61 @@
+* {
+    font-family: 'Quicksand', sans-serif;
+}  /*ADDED FROM REVIEW*/
+
+body {
+    background: #6EB6CAFF;
+} /*ADDED FROM REVIEW*/
+
+#profile-card {
+    background: HOTPINK; /*ADDED FROM REVIEW*/
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#profile-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; /*ADDED FROM REVIEW*/
+    background-position: center; /*ADDED FROM REVIEW*/
+}
+
+#profile-name {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+#profile-desc {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#toggle-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #FDA5F2FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#toggle-btn:hover {
+    background-color: #FBE49FFF; /*ADDED FROM REVIEW*/
+}
+
+.fancy {
+    font-family: "Castoro", "sans-serif";
+    color: #9F421DFF;
+} /*ADDED FROM REVIEW*/
+
+.disco {
+    background: #C03B9CFF !important;
+    border: solid 2px #FEB713FF;
+} /*ADDED FROM REVIEW*/
+
