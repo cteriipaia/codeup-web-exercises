@@ -26,6 +26,12 @@
         </p>
         <script>
                 "use strict";
+                //Document Object Model (DOM) Events: Exercises
+                const button1=document.querySelector("btn-1");
+                const button2=document.querySelector("btn-2");
+                const button3=document.querySelector("btn-3");
+                const button4=document.querySelector("btn-4");
+
                 // TODO: Uncomment next line and get the main header element by id
                 const mainHeader = document.querySelector("#main-header"); //from review
 
@@ -34,13 +40,22 @@
                 // prints id=mainHeader
 
                 // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-                mainHeader.innerHTML = "Javascript is Cool";
+                //Document Object Model (DOM) Events: Exercises
+                button1.addEventListener("click", () => {
+                    mainHeader.innerHTML = "Javascript is Cool";
+                })
+
+                //         response from original exercise = mainHeader.innerHTML = "Javascript is Cool";
 
                 // TODO: Uncomment the next line and get the sub header element by id
                 const subHeader =document.getElementById("sub-header");
 
                 // TODO: Set the text color of subHeader to blue
-                subHeader.style.color = "blue";
+                //Document Object Model (DOM) Events: Exercises
+                button2.addEventListener("click", () => {
+                    subHeader.style.color = "blue";
+                })
+                // subHeader.style.color = "blue";
 
                 // TODO: Uncomment the next line and get all list items
                 const listItems =document.getElementsByTagName("li");
@@ -64,14 +79,25 @@
                 // }
                 //node can be named anything
 
-                 for (let i = 0; i < listItems.length; i++) {     //<----from review, grey out 2 & 4----> >
-                     if (i % 2 !== 0) {
-                         listItems[i].style.color = "grey";
-                     }
-                       if (listItems[i].dataset.dbid === "1") {
-                           listItems[i].style.color = "blue";
-                       }
-                 }
+                //Document Object Model (DOM) Events: Exercises
+                button3.addEventListener("click", () => {
+                    for (let i = 0; i < listItems.length; i++) {     //<----from review, grey out 2 & 4----> >
+                        if (i % 2 !== 0) {
+                            listItems[i].style.color = "grey";
+                        }
+                        if (listItems[i].dataset.dbid === "1") {
+                            listItems[i].style.color = "blue";
+                        }
+                    }
+                })
+                 // for (let i = 0; i < listItems.length; i++) {     //<----from review, grey out 2 & 4----> >
+                 //     if (i % 2 !== 0) {
+                 //         listItems[i].style.color = "grey";
+                 //     }
+                 //       if (listItems[i].dataset.dbid === "1") {
+                 //           listItems[i].style.color = "blue";
+                 //       }
+                 // }
 
                 //listItems[0].style.color = "blue"; <---from review peer response--->
                 //document.querySelector('li[data-dbid="1"]').style.color = 'blue'; <---another example--->
@@ -85,7 +111,11 @@
                 // document.getElementById("btn4").addEventListener("click", function () {
                 //     subParagraph[0].innerHTML = "Mission Accomplished!";
                 // });
-                subParagraphs[0].innerText = "Mission Accomplished";
+                //Document Object Model (DOM) Events: Exercises
+                button4.addEventListener("click", () => {
+                    subParagraphs[0].innerText = "Mission Accomplished";
+                })
+                // subParagraphs[0].innerText = "Mission Accomplished";
                 //The property innerText behaves in a similar manner, but it ignores any HTML tags.
 
         </script>
