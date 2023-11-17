@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Konami Code</title>
+
+        <style>
+            #main-header {
+                text-align: center;
+                color: rgb(71, 168, 28);
+            }
+            #main-body {
+                background-size: cover;
+                background-color: #ffffff;
+            }
+             .healthBar {
+                 display: flex;
+                 height: 50px;
+                 width: 500px;
+                 background-color: #e1d068;
+             }
+        </style>
+    </head>
+    <body id = main-body>
+        <h1 id="main-header">Konami Code</h1>
+<!--        <script src="https://code.jquery.com/jquery-2.2.4.js"></script>-->
+        <img src="img/Codette.png" height="526" width="588"/>
+        <div id="container"></div>
+        <div id="health"></div>
+
+        <script>
+            "use strict";
+            (() => {
+                let userInput = [];
+                const appear = new Audio("sounds/sound.wav");
+                const hurt = new Audio("sounds/ouch.wav");
+                const hit = new Audio("sounds/hit.wav");
+                const splosion = new Audio("sounds/splosion.wav");
+                const notify = new Audio("sounds/notify.wav");
+                const health = document.querySelector("#health");
+                let healthBlocks = document.querySelectorAll(".block");
+                let healthCount = 0;
+
+                function displayHealth() {
+                    if (!health.classList.contains("healthBar")) {
+                        const divsToAdd = [];
+                        health.classList.add("healthBar");
+                        for (let i = 0; i < healthCount; i++) {
+                            divsToAdd.push("<div class='block'></div>");
+                        }
+                        health.innerHTML = divsToAdd.join("");
+                        healthBlocks = document.querySelectorAll(".block");
+                    }
+                }
+
+
+                function healthDown() {
+                    const newImage = "<img src='img/turkeysplitting.webp'>";
+                    healthBlocks = document.querySelectorAll(".block");
+                    if (healthCount >= 0 && healthCount < healthBlocks.length) {
+                        healthBlocks[healthCount].classList.add("hide");
+                    }
+                    if (healthCount === 0) {
+                        splosion.play();
+                        hurt.play();
+                        document.querySelector("#container").innerHTML = newImage;
+                        setTimeout(() => {
+                            alert("Victory!");
+                            document.querySelector("#container").innerHTML = "";
+                            health.classList.remove("healthBar");
+                            document.removeEventListener("keydown", punch);
+                        }, 1000);
+                    }
+                }
+
+                function punch(event) {
+                    if (event.key.toString() === " ") {
+                        healthCount--;
+                        hit.currentTime = 0;
+                        hit.play();
+                        displayHealth();
+                        healthDown();
+                    }
+                }
+
+                function thirtyLives(event) {
+                    if (event.key.toString() === "Enter") {
+                        healthCount = 30;
+                        userInput = [];
+                        alert("You have given the enemy 30 lives!");
+                        setTimeout(() => {
+                            notify.play();
+                            alert("Press 'spacebar' to punch!");
+                        }, 1000);
+                        const newImg = "<img src='img/duckhunt.gif'>";
+                        document.querySelector("#container").innerHTML = newImg;
+                        document.removeEventListener("keydown", thirtyLives);
+                        appear.play();
+                        document.addEventListener("keydown", punch);
+                    }
+                }
+
+                function burninate(event) {
+                    if (event.key.toString() === "Enter") {
+                        healthCount = 50;
+                        userInput = [];
+                        alert("BURNINATE ALL THE PEASANNNNNTS!!!");
+                        setTimeout(() => {
+                            notify.play();
+                            alert("Press 'spacebar' to punch!");
+                        }, 1000);
+                        const newImg = "<img src='img/duckhunt.gif'>";
+                        document.querySelector("#container").innerHTML = newImg;
+                        document.removeEventListener("keydown", burninate);
+                        appear.play();
+                        document.addEventListener("keydown", punch);
+                    }
+                }
+
+                function konamiHandler(event) {
+                    const trogdorCode = ["t", "r", "o", "g", "d", "o", "r"];
+                    const konamiCode = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+                    userInput.push(event.key);
+                    if (event.key.toString() === "Enter") {
+                        userInput = [];
+                    }
+                    if (userInput.join("").includes(konamiCode.join(""))) {
+                        document.addEventListener("keydown", thirtyLives);
+                    }
+                    if (userInput.join("").includes(trogdorCode.join(""))) {
+                        document.addEventListener("keydown", burninate);
+                    }
+                }
+
+
+                document.addEventListener("keydown", konamiHandler);
+
+            })
+            ();
+        </script>
+    </body>
+</html>
