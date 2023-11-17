@@ -24,12 +24,12 @@
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
         </p>
-        <form>
+        <div>
             <button id="btn-1">Change 1</button>
             <button id="btn-2">Change 2</button>
             <button id="btn-3">Change 3</button>
             <button id="btn-4">Change 4</button>
-        </form>
+        </div>
         <script>
                 "use strict";
                 //Document Object Model (DOM) Events: Exercises
@@ -39,7 +39,7 @@
                 const button4=document.querySelector("btn-4");
 
                 // TODO: Uncomment next line and get the main header element by id
-                const mainHeader = document.querySelector("#main-header"); //from review
+                const mainHeader = document.getElementById("main-header"); //from review
 
                 // const mainHeader =document.getElementsByTagName("main-header"); <this is still correct>
                 // console.log(mainHeader);
@@ -47,9 +47,10 @@
 
                 // TODO: Set inner html of mainHeader to "JavaScript is Cool"
                 //Document Object Model (DOM) Events: Exercises
-                // button1.addEventListener("click", () => {
-                //     mainHeader.innerHTML = "Javascript is Cool";
-                // })
+                button1.addEventListener("click", () => {
+                    mainHeader.innerHTML = "Javascript is Cool";
+                })
+
 
                 //response from original exercise = mainHeader.innerHTML = "Javascript is Cool";
 
@@ -58,9 +59,10 @@
 
                 // TODO: Set the text color of subHeader to blue
                 //Document Object Model (DOM) Events: Exercises
-                // button2.addEventListener("click", () => {
-                //     subHeader.style.color = "blue";
-                // })
+                button2.addEventListener("click", () => {
+                    subHeader.style.color = "blue";
+                });
+
                 // subHeader.style.color = "blue";
 
                 // TODO: Uncomment the next line and get all list items
@@ -85,65 +87,59 @@
                 //node can be named anything
 
                 //Document Object Model (DOM) Events: Exercises
-                // button3.addEventListener("click", () => {
-                //     for (let i = 0; i < listItems.length; i++) {     //<----from review, grey out 2 & 4----> >
-                //         if (i % 2 !== 0) {
-                //             listItems[i].style.color = "grey";
-                //         }
-                //         if (listItems[i].dataset.dbid === "1") {
-                //             listItems[i].style.color = "blue";
-                //         }
-                //     }
-                // });
-                 // for (let i = 0; i < listItems.length; i++) {     //<----from review, grey out 2 & 4----> >
-                 //     if (i % 2 !== 0) {
-                 //         listItems[i].style.color = "grey";
-                 //     }
-                 //       if (listItems[i].dataset.dbid === "1") {
-                 //           listItems[i].style.color = "blue";
-                 //       }
-                 // }
+                button3.addEventListener("click", () => {
+                    for (let i = 0; i < listItems.length; i++) {     //<----from review, grey out 2 & 4----> >
+                        if (i % 2 !== 0) {
+                            listItems[i].style.color = "grey";
+                        }
+                        if (listItems[i].dataset.dbid === "1") {
+                            listItems[i].style.color = "blue";
+                        }
+                    }
+                });
 
                 //listItems[0].style.color = "blue"; <---from review peer response--->
                 //document.querySelector('li[data-dbid="1"]').style.color = 'blue'; <---another example--->
 
                 // TODO: Uncomment the next line and get all elements with class name sub-paragraph
                 // const subParagraphs =document.getElementsByClassName("sub-paragraph")[0];
+                const subParagraph = document.getElementById("sub-paragraph");
 
-                const subParagraphs =document.querySelectorAll(".sub-paragraph"); //from review
+                // const subParagraphs =document.querySelectorAll(".sub-paragraph"); //from review
 
                 // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-                // document.getElementById("btn4").addEventListener("click", function () {
                 //     subParagraph[0].innerHTML = "Mission Accomplished!";
                 // });
-
                 //Document Object Model (DOM) Events: Exercises
-                // button4.addEventListener("click", () => {
-                //     subParagraphs[0].innerText = "Mission Accomplished";
-                // })
+                button4.addEventListener("click", () => {
+                    subParagraph.innerText = "Mission Accomplished";
+                })
                 // subParagraphs[0].innerText = "Mission Accomplished";
                 //The property innerText behaves in a similar manner, but it ignores any HTML tags.
 
-                const h1s = document.querySelectorAll("h1");
-                for (let h1 of h1s) {
-                    h1.addEventListener("click", (e) => {
-                        e.target.style.backgroundColor = "#ef0";
+                //Mouse Events:
+                document.getElementById('main-header').addEventListener('click', function () {
+                    let changeBackground = this.getAttribute('aria-pressed') === 'true';
+                    if (changeBackground) {
+                        this.style.backgroundColor = '';
+                    } else {
+                        this.style.backgroundColor = 'blue';
+                    }
+                });
+                let paragraphs = document.getElementsByClassName('sub-paragraph');
+                for(let i = 0; i < paragraphs.length; i++) {
+                    paragraphs[i].addEventListener('dblclick', function () {
+                        this.style.fontSize = '18px';
                     });
                 }
-                const ps = document.querySelectorAll("p");
-                for (let p of ps) {
-                    p.addEventListener("dblclick", (e) => {
-                        e.target.style.font = "18px";
+                let liElements = document.getElementsByTagName('li');
+                for(let i = 0; i < liElements.length; i++) {
+                    liElements[i].addEventListener('mouseover', function () {
+                        this.style.color = 'red';
                     });
-                }
-                for (let li of listItems){
-                    let origColor = li.style.color;
-                    li.addEventListener("mouseenter", (e) =>{
-                        e.target.color="red";
+                    liElements[i].addEventListener('mouseout', function () {
+                        this.style.color = 'black';
                     });
-                    li.addEventListener("mouseleave", (e) => {
-                        e.target.style.color = "black"
-                    })
                 }
 
         </script>
