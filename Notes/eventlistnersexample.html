@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamically Added Element Events</title>
+  <style>
+    .dynamic-div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid lightgrey;
+      margin: 15px 0;
+      padding: 0 15px;
+    }
+
+    .event-trigger {
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+<h1>Dynamically Added Element Events</h1>
+<button id="create-a-div">Create a Div</button>
+<section id="new-div-section"></section>
+<script>
+  "use strict";
+
+  // obtain reference to the button that will trigger div creation
+  const createButton = document.querySelector("#create-a-div");
+  const buttonEvent = () => console.log('Clicked!');
+
+  // function to create new divs
+  // within each div there is a button with the class `event-trigger`
+  const createDiv = () => {
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("dynamic-div");
+    newDiv.innerHTML = `
+                <p>I'm a new div!</p>
+                <button class='event-trigger'>Click Me!</button>`;
+    newDiv.lastElementChild.addEventListener('click', buttonEvent);
+    document.querySelector("#new-div-section").appendChild(newDiv);
+  }
+  // add the click handler to the button
+  createButton.addEventListener('click', createDiv);
+
+</script>
+</body>
+</html>
