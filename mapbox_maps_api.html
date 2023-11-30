@@ -1,22 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Mapbox Api</title>
-        <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css' rel='stylesheet' />
-    </head>
-    <body>
-        <div id = 'map' style='width: 80vw; height: 50vh; margin: auto'></div>
-        <script src="js/keys.js"></script>
-        <script>
-            mapboxgl.accessToken = MB_KEY;
-            const map = new mapboxgl.Map({
-                container: 'map', // container ID
-                style: 'mapbox://styles/mapbox/streets-v11', // style URL
-                center: [-98.4916, 29.4252], // [lng, lat]
-                zoom: 10, // starting zoom
-            });
-        </script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapbox Api</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css' rel='stylesheet'/>
+</head>
+<body>
+<!--<div id='map' style='width: 80vw; height: 50vh; margin: auto'></div>-->
+<!--// const map = new mapboxgl.Map({-->
+<!--//     container: 'map', // container ID-->
+<!--//     style: 'mapbox://styles/mapbox/streets-v12', // style URL (must use v12 for class)-->
+<!--//     center: [-98.4916, 29.4252], // [lng, lat]-->
+<!--//     zoom: 10, // starting zoom-->
+<!--// });-->
+<!--//CodeUp-->
+<!--// const marker = new mapboxgl.Marker()-->
+<!--//     .setLngLat([-98.4916, 29.4260])-->
+<!--//     .addTo(map);-->
+<!--// geocode("8700 Tesoro Drive, San Antonio, TX 78217", MB_KEY).then (coords => {-->
+<!--//     const marker = new mapboxgl.Marker({draggable: true})-->
+<!--//         .setLngLat(coords)-->
+<!--//         .addTo(map);-->
+<!--// });-->
+<!-- Bonus 2: Add a Select Input for Zoom Level -->
+<label for="zoomSelect">Select Zoom Level:</label>
+<select id="zoomSelect" onchange="changeZoom()">
+    <option value="5">Zoom 5</option>
+    <option value="15">Zoom 15</option>
+    <option value="20">Zoom 20</option>
+</select>
+
+<!-- Bonus 3: Add a Text Box for Geocoding -->
+<label for="addressInput">Enter Address:</label>
+<input type="text" id="addressInput" placeholder="Enter address">
+<button onclick="geocodeAndPlaceMarker()">Go</button>
+
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src="css/mapbox_maps_api.css"></script>
+<script>
+    mapboxgl.accessToken = MB_KEY;
+
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [-98.4916, 29.4252],
+        zoom: 15, // Initial zoom level
+    });
+
+    const restaurants = [
+        {
+            name: "Big Aloha's Aliʻi Cove Restaurant",
+            address: "1210 Pat Booker Rd suite h, Universal City, TX 78148",
+            coordinates: [-98.29794, 29.55116], // Longitude, Latitude
+        },
+        {
+            name: "L & L Hawaiian Barbecue",
+            address: "1302 Austin Hwy #1, San Antonio, TX 78209",
+            coordinates: [-98.450845, 29.485586]
+        },
+        {
+            name: "Aloha Kitchen",
+            address: "1151 Harry Wurzbach, San Antonio, TX 78209",
+            coordinates: [-98.437929, 29.495962]
+        },
+    ];
+
+    // Bonus 1: Info Windows with HTML content
+    restaurants.forEach((restaurant, index) => {
+        geocode(restaurant.address, MB_KEY).then(coordes => {
+            const marker = new mapboxgl.Marker()
+                .setLngLat(coordes)
+                .setPopup(new mapboxgl.Popup().setHTML(`
+                    <div>
+                        <h3>${restaurant.name}</h3>
+                        <p>Why it's my favorite: [Your reason here]</p>
+                        <p>Dishes I like: [Your favorite dishes here]</p>
+                        <img src="[Image URL]" alt="Restaurant Image" width="100">
+                    </div>
+                `))
+                .addTo(map);
+        })
+    });
+
+    // Bonus 2: Add a Select Input for Zoom Level
+    function changeZoom() {
+        const selectedZoom = document.getElementById('zoomSelect').value;
+        map.setZoom(parseInt(selectedZoom, 10));
+    }
+
+    // Bonus 3: Add a Text Box for Geocoding
+    function geocodeAndPlaceMarker() {
+        const address = document.getElementById('addressInput').value;
+
+        geocode(address, MB_KEY).then(coords => {
+            map.setCenter(coords);
+            new mapboxgl.Marker()
+                .setLngLat(coords)
+                .addTo(map);
+        });
+    }
+
+    // Bonus 4: Add a Button to Hide Markers
+    let markers = [];
+    function toggleMarkers() {
+        markers.forEach(marker => marker.toggle());
+    }
+
+    // Bonus 5: Marker Animation
+    const marker = new mapboxgl.Marker({
+        color: '#F84C4C', // color it red
+    });
+
+    function animateMarker(timestamp) {
+        const radius = 20;
+        marker.setLngLat([
+            Math.cos(timestamp / 1000) * radius,
+            Math.sin(timestamp / 1000) * radius
+        ]);
+        marker.addTo(map);
+        requestAnimationFrame(animateMarker);
+    }
+
+    // Start the animation.
+    requestAnimationFrame(animateMarker);
+
+    // Bonus 6: Replace Generic Marker Icon with Image
+    const customMarkerIcon = document.createElement('div');
+    customMarkerIcon.style.backgroundImage = 'url([Image URL])'; // Replace with your image URL
+    customMarkerIcon.style.width = '50px';
+    customMarkerIcon.style.height = '50px';
+
+    restaurants.forEach((restaurant, index) => {
+        geocode(restaurant.address, MB_KEY).then(coordes => {
+            const marker = new mapboxgl.Marker({ element: customMarkerIcon })
+                .setLngLat(coordes)
+                .setPopup(new mapboxgl.Popup().setHTML(`
+                    <div>
+                        <h3>${restaurant.name}</h3>
+                        <p>Why it's my favorite: [Your reason here]</p>
+                        <p>Dishes I like: [Your favorite dishes here]</p>
+                        <img src="[Image URL]" alt="Restaurant Image" width="100">
+                    </div>
+                `))
+                .addTo(map);
+            markers.push(marker);
+        });
+    });
+</script>
+</body>
 </html>
