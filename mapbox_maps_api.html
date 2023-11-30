@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mapbox Api</title>
+        <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css' rel='stylesheet' />
+    </head>
+    <body>
+        <div id = 'map' style='width: 80vw; height: 50vh; margin: auto'></div>
+        <script src="js/keys.js"></script>
+        <script>
+            mapboxgl.accessToken = MB_KEY;
+            const map = new mapboxgl.Map({
+                container: 'map', // container ID
+                style: 'mapbox://styles/mapbox/streets-v11', // style URL
+                center: [-98.4916, 29.4252], // [lng, lat]
+                zoom: 10, // starting zoom
+            });
+        </script>
+    </body>
+</html>
