@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapbox Api</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css' rel='stylesheet'/>
+</head>
+<body>
+    <div id='map' style='width: 80vw; height: 50vh; margin: auto'></div>
+    <script src="../../js/keys.js"></script>
+    <script src="../../js/mapbox-geocoder-utils.js"></script>
+    <script>
+        mapboxgl.accessToken = MB_KEY;
+        // const map = new mapboxgl.Map({
+        //     container: 'map', // container ID
+        //     style: 'mapbox://styles/mapbox/streets-v12', // style URL (must use v12 for class)
+        //     center: [-98.4916, 29.4252], // [lng, lat]
+        //     zoom: 10, // starting zoom
+        // });
+        //CodeUp
+        // const marker = new mapboxgl.Marker()
+        //     .setLngLat([-98.4916, 29.4260])
+        //     .addTo(map);
+        // geocode("8700 Tesoro Drive, San Antonio, TX 78217", MB_KEY).then (coords => {
+        //     const marker = new mapboxgl.Marker({draggable: true})
+        //         .setLngLat(coords)
+        //         .addTo(map);
+        // });
+
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v12',
+            center: [-98.4916, 29.4252],
+            zoom: 9, // Initial zoom level
+        });
+        const restaurants = [
+            {
+                name: "Big Aloha's Aliʻi Cove Restaurant",
+                address: "1210 Pat Booker Rd suite h, Universal City, TX 78148",
+                coordinates: [-98.29794, 29.55116], // Longitude, Latitude
+            },
+            // Adding more restaurants
+            {
+                name: "L & L Hawaiian Barbecue",
+                address: "1302 Austin Hwy #1, San Antonio, TX 78209",
+                coordinates: [-98.450845, 29.485586]
+            },
+            {
+                name: "Aloha Kitchen",
+                address: "1151 Harry Wurzbach, San Antonio, TX 78209",
+                coordinates: [-98.437929, 29.495962]
+            },
+        ];
+        restaurants.forEach((restaurant, index) => {
+            geocode(restaurant.address, MB_KEY).then(coordes => {
+                const marker = new mapboxgl.Marker()
+                    .setLngLat(coordes)
+                    .setPopup(new mapboxgl.Popup().setText(restaurant.name))
+                    .addTo(map);
+            })
+        });
+
+        // Add zoom and rotation controls to the map.
+        map.addControl(new mapboxgl.NavigationControl());
+
+        // Change the cursor to a pointer when the mouse is over the places layer.
+        map.on('mouseenter', 'places', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'places', () => {
+            map.getCanvas().style.cursor = '';
+        });
+        // Add a new Marker.
+        const marker = new mapboxgl.Marker({
+            color: '#F84C4C' // color it red
+        });
+        let animationStartTime;
+
+        function animateMarker(timestamp) {
+            // Check if animationStartTime is not set
+            if (!animationStartTime) {
+                animationStartTime = timestamp;
+            }
+
+            const duration = 2000; // Animation duration in milliseconds (2 seconds)
+
+            // Calculate the elapsed time
+            const elapsedTime = timestamp - animationStartTime;
+
+            if (elapsedTime < duration) {
+                const radius = 0.2;
+                const centerCoordinates = [-98.4916, 29.4252];
+                // needed this to move animation to SA
+                const angle = (timestamp / 6000) * 2 * Math.PI;
+                const markerLng = centerCoordinates[0] + Math.cos(angle) * radius;
+                const markerLat = centerCoordinates[1] + Math.sin(angle) * radius;
+
+                marker.setLngLat([markerLng, markerLat]);
+                marker.addTo(map);
+
+                // Request the next frame of the animation.
+                requestAnimationFrame(animateMarker);
+            } else {
+                // Stop after 2 seconds
+                console.log('Animation stopped after 2 seconds.');
+            }
+
+        }
+        // Start the animation.
+        requestAnimationFrame(animateMarker);
+
+    </script>
+    </body>
+</html>
