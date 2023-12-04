@@ -4,68 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Map</title>
-    <!-- Link to external CSS file -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css' rel='stylesheet'/>
     <link rel="stylesheet" href="css/weather_map.css">
-    <!-- Include Mapbox and styles -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
-    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css'/>
-    <script src="js/keys.js"></script>
-    <script src="js/mapbox-geocoder-utils.js"></script>
-    <script src="js/weather_map.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital@0;1&family=Gluten:wght@100;200;300;400;500;600;700;800;900&family=Grechen+Fuemen&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Nanum+Myeongjo:wght@400;700;800&family=Passion+One:wght@400;700;900&family=Playfair+Display:ital@0;1&family=Quicksand:wght@300;400;500;600;700&family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Vujahday+Script&display=swap"
+          rel="stylesheet">
 </head>
 <body>
+<!--Here is the Navbar-->
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Weather App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="#">Monthly Forecast</a>
+                <a class="nav-link" href="#">Radar</a>
+            </div>
+        </div>
+    </div>
+</nav>
 <header>
-    <h1>Weather Map</h1>
+    <h1>Five-Day Forecast</h1>
 </header>
-<div class="forecast-grid"></div>
-<!-- Mapbox container -->
-<div id="map"></div>
+    <!--Map with search bar-->
+    <div id="map-container">
+        <!-- Search bar -->
+        <div id="search-container">
+            <label for="search" class="form-control w-15 search-label"> Search for a location: </label>
+            <input type="text" class="form-control w-75" id="search" placeholder="Enter a location">
+            <button class="btn btn-secondary btn-lg" id="searchButton">Search</button>
+        </div>
 
-<script>
-    // Initialize Mapbox map
-    mapboxgl.accessToken = MB_KEY;
-    const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v12',
-        center: [-98.4916, 29.4252], // starting position [lng, lat]
-        zoom: 9
-    });
+        <!-- Map -->
+        <div id="map"></div>
+    </div>
+<br>
+    <div>
+        <label for="zoom-level" id="zoom-label">Zoom Level:</label>
+        <select id="zoom-level">
+            <option value="5">5</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+    </div>
 
-    // Fetch weather data when the page loads
-    fetchWeatherData(-98.4916, 29.4252);
+<!--Div for the weather information shown as a card-->
+    <div class="parent-container">
+        <div id="weatherInfoCard">
+            <h2 >Weather Information</h2>
+            <p id="weatherInfo"></p>
 
-    // Event listener for when the map is clicked
-    map.on('click', (e) => {
-        const { lng, lat } = e.lngLat;
-        // Fetch weather data when the map is clicked
-        fetchWeatherData(lat, lng);
-    });
-
-    // Add Mapbox Geocoder for location search
-    const geocoder = new MapboxGeocoder({
-        accessToken: mapboxApiKey,
-        mapboxgl: mapboxgl
-    });
-
-    // Add the geocoder to your page
-    document.getElementById('map').appendChild(geocoder.onAdd(map));
-
-    // Function to fetch weather data based on coordinates
-    const lat = 29.4252;
-    const lon = -98.4916;
-    function fetchWeatherData(lat, lon) {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=WM_KEY&units=imperial`)
-            .then(response => response.json())
-            .then(data => {
-                // Process the data and update the forecast
-                // You can access specific weather information from the 'data' object
-                console.log(data);
-                // Update the forecast UI (you need to implement this part)
-            })
-            .catch(error => {
-                console.error('Error fetching weather data:', error);
-            });
-    }
-</script>
+        </div>
+    </div>
+    <hr>
+    <!-- Sources -->
+    <script src="js/mapbox-geocoder-utils.js"></script>
+    <script src="js/keys.js"></script>
+    <script src="js/weather_map.js"></script>
+    <script src="https://kit.fontawesome.com/f16e38e584.js" crossorigin="anonymous"></script>
 </body>
 </html>
