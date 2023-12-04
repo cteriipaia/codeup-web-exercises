@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OpenWeather</title>
+</head>
+<body>
+
+<h1>Intro to OpenWeather</h1>
+
+<script src="js/keys.js"></script>
+<script>
+  "use strict";
+
+  // function convertTime() {
+  //
+  // }
+
+  // const lat = 29.4260;
+  // const lon = -98.4861;
+  // fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=imperial`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //         console.log(data);
+  //         // 3 hours 3 x 8 = 24
+  //
+  //         for (let i = 0; i < data.list.length; i += 8) {
+  //           console.log(data.list[i].main.pressure);
+  //         }
+  //         // 1003 for pressure
+  //     })
+  //     .catch((e) => {
+  //       console.error(e);
+  //     });
+
+
+  // Searching by City
+  const city = 'Paris';
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${WEATHER_API_KEY}`)
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            console.log(data.list[0].dt);
+            console.log(new Date(data.list[0].dt * 1000).toDateString())
+          })
+          .catch((e) => {
+            console.error(e);
+          });
+
+
+  // Customize the response with units
+  // const city = 'Whitefish, TX, US';
+  // const units = 'imperial';
+  // fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${WEATHER_API_KEY}&units=${units}`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //         console.log(data);
+  //     })
+  //     .catch((e) => {
+  //         console.error(e);
+  //     });
+
+
+
+  // Can format timestamp with new Date(forecast.dt * 1000).toDateString()
+
+
+
+
+</script>
+
+</body>
+</html>
