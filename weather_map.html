@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Map</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="css/weather_map.css">
+    <!-- Include Mapbox and styles -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css'/>
+    <script src="js/keys.js"></script>
+    <script src="js/mapbox-geocoder-utils.js"></script>
+    <script src="js/weather_map.js"></script>
+</head>
+<body>
+<header>
+    <h1>Weather Map</h1>
+</header>
+<div class="forecast-grid"></div>
+<!-- Mapbox container -->
+<div id="map"></div>
+
+<script>
+    // Initialize Mapbox map
+    mapboxgl.accessToken = MB_KEY;
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [-98.4916, 29.4252], // starting position [lng, lat]
+        zoom: 9
+    });
+
+    // Fetch weather data when the page loads
+    fetchWeatherData(-98.4916, 29.4252);
+
+    // Event listener for when the map is clicked
+    map.on('click', (e) => {
+        const { lng, lat } = e.lngLat;
+        // Fetch weather data when the map is clicked
+        fetchWeatherData(lat, lng);
+    });
+
+    // Add Mapbox Geocoder for location search
+    const geocoder = new MapboxGeocoder({
+        accessToken: mapboxApiKey,
+        mapboxgl: mapboxgl
+    });
+
+    // Add the geocoder to your page
+    document.getElementById('map').appendChild(geocoder.onAdd(map));
+
+    // Function to fetch weather data based on coordinates
+    const lat = 29.4252;
+    const lon = -98.4916;
+    function fetchWeatherData(lat, lon) {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=WM_KEY&units=imperial`)
+            .then(response => response.json())
+            .then(data => {
+                // Process the data and update the forecast
+                // You can access specific weather information from the 'data' object
+                console.log(data);
+                // Update the forecast UI (you need to implement this part)
+            })
+            .catch(error => {
+                console.error('Error fetching weather data:', error);
+            });
+    }
+</script>
+</body>
+</html>
