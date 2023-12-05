@@ -1,64 +1,67 @@
-body{
-    font-family: "Dancing Script", cursive !important;
-    background-color: #000000 !important;
-}
-
-#map-container {
-    position: relative;
-    height: 400px;
-    width: 100%;
-    margin-top: 20px;
-    /*display: flex;*/
-    /*flex-direction: row; !* Set the flex container to a row *!*/
-}
-
-#map {
-    flex: 1;
-    height: 100%; /* Take full height of the container */
-}
-
-#search-container {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 1;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 5px;
-}
-.forecast-day {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-
+/*<!-- Navbar -->*/
 .navbar {
-    background-color: #FFF;
+    background-color: #459953;
 }
-
-i {
-    color: #1561e5;
-}
-
-#map {
-    width: 97%;
-    height: 50vh;
-    margin: 1.5em;
-    align-items: center;
-}
+/*<!-- Headers -->*/
 h1 {
     text-align: center;
     margin: 1em;
     padding: 0;
     text-decoration: underline;
-    color: #e1d068 !important;
+    color: #000000;
 }
-
 h3 {
-    color: #f3d00b !important;
+    color: #efb916;
 }
-
+/*<!-- Body -->*/
+body{
+    font-family: "Dancing Script", cursive;
+    background-color: rgba(71, 168, 28, 0.45);
+}
+/*<!-- Map -->*/
+#map-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin-top: 20px;
+}
+#map {
+    flex: 1;
+    height: 100%;
+    width: 97%;
+    margin: 1.5em;
+    align-items: center;
+    box-shadow: 0 0 15px #336699;
+    border-radius: 1px;
+}
+/*<!-- Search -->*/
+#search-container {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: calc(100% - 80px);
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1px;
+    border-radius: 5px;
+    display: flex;
+}
+.search-bar {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-label {
+    background-color: rgba(69, 153, 83, 0.34);
+    padding: 10px;
+    border-radius: 5px;
+}
+/*<!-- Zoom 5, 15, 20 -->*/
+#zoom-label {
+    margin: 1em;
+}
+/*<!-- Forecast with parent-container -->*/
 .parent-container {
     display: flex;
     flex-wrap: wrap;
@@ -66,7 +69,11 @@ h3 {
     align-items: center;
     text-align: center;
 }
-
+.forecast-day {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
 .forecast-card {
     text-align: center;
     display: inline-flex;
@@ -77,24 +84,12 @@ h3 {
     border-radius: 5px;
     box-shadow: 0 0 15px #336699;
     background-color: #fff;
-
-    /* Adjust the size properties with relative units for responsiveness */
-    width: 200px; /* Take full width of the container */
-    max-width: 300px; /* Set a maximum width to prevent it from becoming too wide */
+    width: 200px;
+    max-width: 300px;
 }
-
-/* Example styles for elements inside .forecast-card */
-.forecast-card h2 {
-    /* Adjust heading styles */
-    font-size: 1.5em; /* Responsive font size using em units */
-    margin-bottom: 5px; /* Add space below the heading */
-    color: #6d0921;
-}
-
 .forecast-card p {
-    /* Adjust paragraph styles */
-    font-size: 1em; /* Responsive font size using em units */
-    margin-bottom: 10px; /* Add space below paragraphs */
+    font-size: 1em;
+    margin-bottom: 10px;
 }
 
 /* Media query for adjusting styles for smaller screens */
@@ -111,20 +106,4 @@ h3 {
     .forecast-card p {
         font-size: .5em; /* Adjusted font size for smaller screens */
     }
-}
-
-
-.search-bar {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.search-label {
-    background-color: #083D77;
-    color: #fff;
-}
-
-#zoom-label {
-    margin: 1em;
 }
