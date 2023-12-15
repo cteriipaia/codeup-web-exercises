@@ -7,11 +7,11 @@
 
     // Two seconds after the page loads, change the "profile-pic" src attribute to a different image.
 
-    setTimeout(() => document.querySelector("#profile-pic").src = "img/Codette.png",2000);
+    setTimeout(() => document.querySelector("#profile-pic").src = "img/imugiprofile.png",2000);
 
     //Four seconds after the page loads, use innerHTML to change the name in "profile-name".
 
-    setTimeout(() => document.querySelector("#profile-name").innerText = "Codette the Duck", 4000);
+    setTimeout(() => document.querySelector("#profile-name").innerText = "Imugi", 4000);
 
     //Six seconds after page loads, add a new class to "profile-desc" that changes the color and font of the description text.
 

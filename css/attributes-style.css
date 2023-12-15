@@ -3,7 +3,7 @@
 }  /*ADDED FROM REVIEW*/
 
 body {
-    background: #6EB6CAFF;
+    background: #6eb6ca;
 } /*ADDED FROM REVIEW*/
 
 #profile-card {
@@ -38,9 +38,9 @@ body {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
-    background-color: #FDA5F2FF;
-    color: white;
-    border: none;
+    background-color: darkslategrey;
+    color: #6eb6ca;
+    border:solid 2px #FEB713FF;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -51,7 +51,7 @@ body {
 
 .fancy {
     font-family: "Castoro", "sans-serif";
-    color: #9F421DFF;
+    color: #6eb6ca;
 } /*ADDED FROM REVIEW*/
 
 .disco {
