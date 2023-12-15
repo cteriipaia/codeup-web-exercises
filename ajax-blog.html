@@ -1,10 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ajax Blog</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ajax Blog</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/ajax-blog.css">
+    </head>
+    <body>
+        <div id="posts"></div>
 
-</body>
+        <script>
+            fetch('data/blog.json')
+                .then(response => response.json())
+                .then(data => {
+                    // Append data to the #posts div
+
+                    const postsDiv = document.getElementById('posts');
+                    // Add your code to dynamically create and display blog posts here
+                    data.posts.forEach(post => {
+                        let postDiv = document.createElement("div");
+                        postDiv.classList.add("card");
+                        postDiv.classList.add("mb-3");
+                        postDiv.classList.add("mt-3");
+                        postDiv.classList.add("p-3");
+                        postDiv.classList.add("shadow");
+                        postDiv.classList.add("rounded");
+                        postDiv.classList.add("border-0");
+                        postDiv.classList.add("bg-light");
+                        postDiv.classList.add("text-dark");
+                        postDiv.classList.add("col-12");
+                        postDiv.classList.add("col-md-6");
+                        postDiv.classList.add("col-lg-4");
+                        postDiv.classList.add("col-xl-3");
+                        postDiv.classList.add("col-xxl-2");
+                        postDiv.classList.add("mx-auto");
+                        postDiv.classList.add("mx-md-0");
+                        postDiv.classList.add("mx-lg-0");
+                        postDiv.classList.add("mx-xl-0");
+                        postDiv.classList.add("mx-xxl-0");
+                        postDiv.classList.add("mx-0");
+                        postDiv.classList.add("mx-auto");
+                        postDiv.classList.add("mx-md-0");
+                        postDiv.classList.add("mx-lg-0");
+                        postDiv.classList.add("mx-xl-0");
+                        postDiv.classList.add("mx-xxl-0");
+                        postDiv.classList.add("mx-0");
+                        postDiv.classList.add("mx-auto");
+                        postDiv.classList.add("mx-md-0");
+                        postDiv.classList.add("mx-lg-0");
+                        postDiv.classList.add("mx-xl-0");
+                        postDiv.classList.add("mx-xxl-0");
+                        postDiv.classList.add("mx-0");
+                        postDiv.classList.add("mx-auto");
+                        postDiv.classList.add("mx-md-0");
+                        postDiv.classList.add("mx-lg-0");
+                        postDiv.classList.add("mx-xl-0");
+                        postDiv.classList.add("mx-xxl-0");
+                        postDiv.classList.add("mx-0");
+                        postDiv.classList.add("mx-auto");
+                        postDiv.classList.add("mx-md-0");
+                        postDiv.classList.add("mx-lg-0");
+                        postDiv.classList.add("mx-xl-0");
+                        postDiv.classList.add("mx-xxl-0");
+                        postDiv.classList.add("mx-0");
+                        postDiv.classList.add("mx-auto");
+                        postDiv.classList.add("mx-md-0");
+                    })
+                        .catch(error => console.error('Error fetching blog data:', error));// Log error if any
+                });
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/7c24c3b5c0.js" crossorigin="anonymous"></script>
+    </body>
 </html>
