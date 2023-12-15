@@ -32,3 +32,5 @@ function getRandomGreeting() {
 }
 
 export {getRandomGreeting};
+
+//export const getRandomGreeting = () =>  greetings[genRandomNum(0, greetings.length - 1)];
