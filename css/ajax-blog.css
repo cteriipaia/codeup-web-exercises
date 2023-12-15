@@ -1,5 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /* Set the background image */
+    background: url("../img/imugi.png") center/cover no-repeat fixed;
+    justify-content: center;
+    width: 100%;
+    /* Set the font */
+    font-family: 'Reggae One', cursive;
+    color: #6eb6ca;
+    font-size: 1.2rem;
+}
+nav{
+    background-color: darkslategrey;
+    color: rgb(110, 182, 202);
+    padding: 20px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    align-content: center;
+    gap:30px 20px;
+}
+.navbar-brand{
+    background: fixed;
+    text-align: center;
+    width: 110%;
+}
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    z-index: 1000;
+
+}
+main {
+    margin-top: 100px;
+}
+
 #posts {
     max-width: 800px;
     margin: 0 auto;
@@ -10,13 +56,53 @@
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: rgba(249, 249, 249, 0.8); /* Adjust the alpha value (last parameter) for transparency */
 }
 
-h2 {
-    color: #333;
+h2, h1 {
+    color: #6eb6ca;
 }
 
 p {
     color: #555;
+}
+footer {
+    background-color: darkslategrey;
+    color: rgb(110, 182, 202);
+    padding: 20px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    align-content: center;
+    gap:30px 20px;
+}
+footer a {
+    color: rgb(110, 182, 202);
+    /*text-decoration: none;*/
+    margin: 0 5px;
+    padding: 0 2px;
+}
+footer a:hover {
+    color: #ffffff;
+}
+footer p {
+    color:rgb(192, 114, 182, 0.84);
+}
+#subscribe-form {
+    display: flex;
+    align-items: center;
+}
+
+#subscribe-input {
+    width: 150px;
+    margin: 0 10px;
+}
+#subscribe-btn {
+    padding: 5px 10px;
+    background-color: rgba(192, 114, 182, 0.84);
+    color: rgb(110, 182, 202);
+    border: none;
+    border-radius: 5px; /* Set the border-radius for rounded corners */
+    cursor: pointer;
 }
