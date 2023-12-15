@@ -6,7 +6,7 @@
 body{
     display: flex;
     flex-direction: column;
-    background: url("media/coffeebackgroundfull.png") repeat scroll 50% 0 !important;
+    background: url("img/coffeebackgroundfull.png") repeat scroll 50% 0 !important;
     justify-content: center;
     width: 100%;
     font-family: 'Reggae One', cursive;

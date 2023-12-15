@@ -1,0 +1,46 @@
+*{
+}
+
+body{
+    /* Set the background image */
+    background: url("../img/toolman.png") center/cover no-repeat fixed;
+    justify-content: center;
+    width: 100%;
+    /* Set the font */
+    font-family: 'Reggae One', cursive;
+    color: #ffd700;
+}
+.navbar-brand{
+    color: #ffd700 !important;
+    text-align: center;
+    width: 100%;
+}
+table {
+    margin: auto 0;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+tr{
+
+    text-align: center;
+}
+/* Media query for medium screens */
+@media (max-width: 768px) {
+    /* Collapsible navbar-brand */
+    .navbar-brand {
+        display: block;
+        text-align: center;
+        width: 100%;
+        margin: .4px; /* Adjust as needed */
+    }
+
+    /* Make the table responsive */
+    table {
+        overflow-x: auto;
+    }
+}

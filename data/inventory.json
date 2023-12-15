@@ -30,5 +30,103 @@
             "tool"
         ],
         "price": 10
-    }
+    }, {
+        "title": "Powerwasher",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "powered",
+            "outdoor"
+        ],
+        "price": 200
+    }, {
+        "title": "Nails",
+        "quantity": 250,
+        "categories": [
+            "tool",
+            "building"
+        ],
+        "price": 5
+    }, {
+        "title": "Lawnmower",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "gas",
+            "outdoor"
+        ],
+        "price": 200
+    }, {
+        "title": "Bandsaw",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "powered"
+        ],
+        "price": 350
+    }, {
+        "title": "Chainsaw",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "gas",
+            "outdoor",
+            "powered"
+        ],
+        "price": 350
+    }, {
+        "title": "Circular Saw",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "powered"
+        ],
+        "price": 150
+    }, {
+        "title": "Jackhammer",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "gas",
+            "powered"
+        ],
+        "price": 350
+    }, {
+        "title": "Sander",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "powered"
+        ],
+        "price": 150
+    }, {
+        "title": "Wrench",
+        "quantity": 25,
+        "categories": [
+            "tool"
+        ],
+        "price": 10
+    }, {
+        "title": "Wheelbarrow",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "outdoor"
+        ],
+        "price": 40
+    }, {
+        "title": "Shovel",
+        "quantity": 25,
+        "categories": [
+            "tool",
+            "outdoor"
+        ],
+        "price": 10
+    }, {
+        "title": "Rake",
+        "quantity": 25,
+        "categories": [
+            "tool",
+            "outdoor"
+        ]}
 ]
