@@ -16,7 +16,7 @@
 
         p.classList.add("m-0");
         doneBtn.classList.add("btn","btn-danger");
-        li.classList.add("to-do-item"," list-group-item", "d-flex", "justify-content-between", "align-items-center");
+        li.classList.add("to-do-item", "list-group-item", "d-flex", "justify-content-between", "align-items-center");
 
         doneBtn.innerText="Done";
         p.innerText = userInput;
@@ -25,7 +25,7 @@
         li.appendChild(p);
         li.appendChild(doneBtn);
 
-        doneBtn.addEventListener("click", () => {
+        doneBtn.addEventListener("click", e => {
             //e.target.parentElement.remove(); // from review
             toDoList.removeChild(li); // will always refer to specific li [<parent element>.removeChild(<child element to remove>)]
 
